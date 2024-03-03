@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDEBIBLIO - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFEFD5;
+            color: #800000; /* Cor do texto principal */
+        }
+        .container {
+            max-width: 800px;
+            margin: 200px auto 200px auto; /* Espaçamento de 200px * Espaçamento de 200px entre a barra de navegação e a div container */
+            padding: 10px;
+            background-color: #DEB887; /* Fundo do container */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #800000; /* Linha inferior */
+        }
+        h2 {
+            text-align: center;
+            color: #800000; /* Cor do título */
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .section-title {
+            text-align: center;
+            color: #800000; /* Cor do título */
+            border-bottom: 2px solid #800000; /* Linha inferior */
+            padding-bottom: 5px; /* Espaçamento inferior */
+            margin-bottom: 20px; /* Espaçamento inferior */
+            font-weight: bold; /* Negrito */
+        }
+        .navbar {
+            background-color: #800000; /* Cor de fundo da barra */
+            padding: 10px 0; /* Espaçamento interno */
+            text-align: left; /* Alinhamento do texto */
+        }
+        .navbar a {
+            color: white; /* Cor do texto */
+            text-decoration: none; /* Remover sublinhado do link */
+            margin: 0 15px; /* Espaçamento horizontal entre os links */
+        }
+        .book {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .book img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .book-info {
+            flex: 1;
+        }
+        .etiquetas span {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra horizontal com links -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">Sobre</a>
+    </div>
+
+    <div class="container">
+        <h1>BIBLIOTECA EMÍLIA BUSTAMANTE: PROJETO REDEBIBLIO</h1>
+        <div class="section">
+            <div class="section-title">LIVROS</div>
+            <div class="book">
+                <a href="#">
+                    <img src="imagensAfricarecontada.jpg" alt="Capa do livro A África recontada para crianças">
+                </a>
+                <div class="book-info">
+                    <p>Título: A África recontada para crianças</p>
+                    <p>Autor(a): Silva, Avani Souza</p>
+                    <p>Páginas: 120 p.</p>
+                    <div class="etiquetas">Etiquetas: <span id="etiquetas-container"></span></div>
+                </div>
+            </div>
+            <!-- Adicione mais livros aqui -->
+        </div>
+    </div>
+
+    <script>
+        const etiquetasContainer = document.getElementById('etiquetas-container');
+
+        // Função para exibir etiquetas na página inicial
+        function exibirEtiquetas() {
+            // Recupera as etiquetas associadas a cada livro (simulação)
+            let etiquetas = {
+                "A África recontada para crianças": ["Infantil", "História"]
+            };
+            
+            // Limpa as etiquetas antes de exibir
+            etiquetasContainer.innerHTML = '';
+
+            // Itera sobre os livros e exibe as etiquetas na página inicial
+            for (const livro in etiquetas) {
+                etiquetasContainer.innerHTML += `<b>${livro}</b>: `;
+                etiquetas[livro].forEach(etiqueta => {
+                    etiquetasContainer.innerHTML += `<span>${etiqueta}</span>, `;
+                });
+                etiquetasContainer.innerHTML += '<br>';
+            }
+        }
+
+        // Chama a função para exibir etiquetas ao carregar a página
+        exibirEtiquetas();
+    </script>
+</body>
+</html>
